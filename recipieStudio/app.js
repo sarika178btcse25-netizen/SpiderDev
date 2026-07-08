@@ -108,7 +108,7 @@ function displayRecipes(meals) {
                     <div class="btn-group">
                         <button onclick="viewDetails('${meal.idMeal}')">View 📖</button>
                         <button onclick="toggleFavorite('${meal.idMeal}', '${safeName}', '${meal.strMealThumb}')">
-                            ${isFav ? '❤️ Unfav' : '🤍 Fav'}
+                            ${isFav ? ' Unfav' : ' Fav'}
                         </button>
                     </div>
                     <select class="planner-select" onchange="addToPlanner(this.value, '${meal.idMeal}', '${safeName}')">
@@ -217,7 +217,7 @@ document.getElementById('generate-shopping-btn').addEventListener('click', gener
 
 async function generateShoppingList() {
     const btn = document.getElementById('generate-shopping-btn');
-    btn.innerText = "Generating... ⏳";
+    btn.innerText = "Generating... ";
     let allIngredients = [];
 
     // Flatten planned recipe IDs and remove duplicates
@@ -285,7 +285,7 @@ document.getElementById('start-timer').addEventListener('click', () => {
         if (timeRemaining <= 0) {
             clearInterval(timerInterval);
             timerInterval = null;
-            alert("🔔 Time's up! Check your food!");
+            alert(" Time's up! Check your food!");
         }
     }, 1000);
 });

@@ -9,13 +9,13 @@
 <body>
     <header>
         <div class="nav-container">
-            <h1>🍳 Recipe Studio</h1>
+            <h1> Recipe Studio</h1>
             <nav class="nav-controls">
-                <button onclick="switchView('home')">🏠 Home</button>
-                <button onclick="switchView('favorites')">❤️ Favorites</button>
-                <button onclick="switchView('planner')">📅 Meal Plan</button>
-                <button onclick="switchView('shopping')">🛒 Shopping List</button>
-                <button id="theme-toggle">🌙 Theme</button>
+                <button onclick="switchView('home')"> Home</button>
+                <button onclick="switchView('favorites')"> Favorites</button>
+                <button onclick="switchView('planner')">  Meal Plan</button>
+                <button onclick="switchView('shopping')"> Shopping List</button>
+                <button id="theme-toggle"> Theme</button>
             </nav>
         </div>
     </header>
@@ -26,7 +26,7 @@
             <section class="controls-section">
                 <form id="search-form">
                     <input type="text" id="search-input" placeholder="Search recipes (e.g., chicken, pasta)...">
-                    <button type="submit">Search 🔍</button>
+                    <button type="submit">Search </button>
                 </form>
                 <select id="category-filter">
                     <option value="All">All Categories</option>
@@ -36,7 +36,7 @@
                     <option value="Vegetarian">Vegetarian</option>
                     <option value="Breakfast">Breakfast</option>
                 </select>
-                <button id="random-btn">🎲 Random Recipe</button>
+                <button id="random-btn"> Random Recipe</button>
             </section>
 
             <div class="special-sections">
@@ -44,7 +44,7 @@
                     <!-- Recipe of the day injected here -->
                 </div>
                 <div id="recent-container" class="highlight-box">
-                    <h3>👀 Recently Viewed</h3>
+                    <h3> Recently Viewed</h3>
                     <ul id="recent-list"></ul>
                 </div>
             </div>
@@ -55,7 +55,7 @@
 
         <!-- MEAL PLANNER VIEW -->
         <div id="planner-view" class="view-section hidden">
-            <h2>📅 Weekly Meal Planner</h2>
+            <h2> Weekly Meal Planner</h2>
             <div id="planner-grid" class="planner-grid">
                 <!-- Days injected by JS -->
             </div>
@@ -80,7 +80,7 @@
             
             <!-- Cooking Timer Section -->
             <div class="timer-section">
-                <h3>⏱️ Cooking Timer</h3>
+                <h3> Cooking Timer</h3>
                 <div class="timer-controls">
                     <input type="number" id="timer-minutes" placeholder="Minutes (e.g., 15)" min="1" max="180">
                     <button id="start-timer">Start</button>
