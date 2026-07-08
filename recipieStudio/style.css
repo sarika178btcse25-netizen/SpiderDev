@@ -1,0 +1,72 @@
+/* CSS Variables for Theming */
+:root {
+    --bg-color: #f4f4f9;
+    --text-color: #333;
+    --card-bg: #fff;
+    --primary-color: #ff6b6b;
+    --secondary-color: #4ecdc4;
+    --border-color: #ddd;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #f4f4f9;
+    --card-bg: #2d2d2d;
+    --border-color: #444;
+}
+
+/* Base Styles */
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+body { background-color: var(--bg-color); color: var(--text-color); transition: 0.3s; padding-bottom: 2rem;}
+
+/* Header & Navigation */
+header { background-color: var(--card-bg); padding: 1rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; flex-wrap: wrap; gap: 1rem;}
+.nav-controls { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+/* Buttons & Inputs */
+button, select { padding: 0.5rem 1rem; cursor: pointer; border: none; border-radius: 5px; background: var(--primary-color); color: white; font-weight: bold; transition: 0.2s;}
+button:hover { opacity: 0.9; }
+input { padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 5px; width: 250px; background: var(--card-bg); color: var(--text-color);}
+
+/* Controls & Special Sections */
+.controls-section { max-width: 1200px; margin: 2rem auto; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;}
+.special-sections { max-width: 1200px; margin: 1rem auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+.highlight-box { background: var(--card-bg); padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+.highlight-box ul { padding-left: 1.5rem; margin-top: 0.5rem;}
+
+/* Grid Layout for Recipes */
+.grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; padding: 1rem; }
+.recipe-card { background-color: var(--card-bg); border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: flex; flex-direction: column; }
+.recipe-card img { width: 100%; height: 200px; object-fit: cover; }
+.card-content { padding: 1rem; display: flex; flex-direction: column; flex-grow: 1; gap: 0.5rem;}
+.card-actions { display: flex; flex-direction: column; gap: 0.5rem; margin-top: auto;}
+.btn-group { display: flex; gap: 0.5rem; }
+.btn-group button { flex: 1; }
+.planner-select { width: 100%; padding: 0.4rem; margin-top: 0.5rem; background: var(--bg-color); color: var(--text-color); border: 1px solid var(--border-color);}
+
+/* Views */
+.view-section { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
+.hidden { display: none !important; }
+
+/* Planner Grid */
+.planner-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; }
+.planner-day { background: var(--card-bg); padding: 1rem; border-radius: 8px; border-top: 4px solid var(--secondary-color); box-shadow: 0 2px 4px rgba(0,0,0,0.1);}
+.planner-day h3 { margin-bottom: 0.5rem; text-align: center;}
+.planned-meal { background: var(--bg-color); padding: 0.5rem; border-radius: 4px; margin-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem;}
+
+/* Shopping List */
+.shopping-list { list-style: none; margin-top: 1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 0.5rem; }
+.shopping-list li { background: var(--card-bg); padding: 0.8rem; border-radius: 4px; display: flex; align-items: center; gap: 10px; border-left: 3px solid var(--primary-color);}
+.shopping-list li.checked { text-decoration: line-through; opacity: 0.5; }
+.action-btn { background: var(--secondary-color); }
+
+/* Modal & Timer */
+.modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: flex; justify-content: center; align-items: center; z-index: 1000; }
+.modal-content { background: var(--card-bg); padding: 2rem; border-radius: 10px; max-width: 700px; width: 90%; max-height: 90vh; overflow-y: auto; position: relative; }
+.close-btn { position: absolute; top: 10px; right: 20px; font-size: 2rem; cursor: pointer; color: var(--text-color);}
+.timer-section { background: var(--bg-color); padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem; text-align: center; border: 1px solid var(--border-color);}
+.timer-controls { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0; }
+#timer-display { font-size: 3rem; font-weight: bold; font-family: monospace; color: var(--primary-color); }
+
+#loading-spinner { text-align: center; font-size: 1.2rem; margin: 2rem; width: 100%; font-weight: bold;}

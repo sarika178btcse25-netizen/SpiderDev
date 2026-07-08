@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Studio Boss Level</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <h1>🍳 Recipe Studio</h1>
+            <nav class="nav-controls">
+                <button onclick="switchView('home')">🏠 Home</button>
+                <button onclick="switchView('favorites')">❤️ Favorites</button>
+                <button onclick="switchView('planner')">📅 Meal Plan</button>
+                <button onclick="switchView('shopping')">🛒 Shopping List</button>
+                <button id="theme-toggle">🌙 Theme</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- HOME / SEARCH VIEW -->
+        <div id="home-view" class="view-section active">
+            <section class="controls-section">
+                <form id="search-form">
+                    <input type="text" id="search-input" placeholder="Search recipes (e.g., chicken, pasta)...">
+                    <button type="submit">Search 🔍</button>
+                </form>
+                <select id="category-filter">
+                    <option value="All">All Categories</option>
+                    <option value="Beef">Beef</option>
+                    <option value="Chicken">Chicken</option>
+                    <option value="Dessert">Dessert</option>
+                    <option value="Vegetarian">Vegetarian</option>
+                    <option value="Breakfast">Breakfast</option>
+                </select>
+                <button id="random-btn">🎲 Random Recipe</button>
+            </section>
+
+            <div class="special-sections">
+                <div id="rotd-container" class="highlight-box">
+                    <!-- Recipe of the day injected here -->
+                </div>
+                <div id="recent-container" class="highlight-box">
+                    <h3>👀 Recently Viewed</h3>
+                    <ul id="recent-list"></ul>
+                </div>
+            </div>
+
+            <div id="loading-spinner" class="hidden">Loading tasty recipes...</div>
+            <section id="recipe-container" class="grid-container"></section>
+        </div>
+
+        <!-- MEAL PLANNER VIEW -->
+        <div id="planner-view" class="view-section hidden">
+            <h2>📅 Weekly Meal Planner</h2>
+            <div id="planner-grid" class="planner-grid">
+                <!-- Days injected by JS -->
+            </div>
+            <button id="generate-shopping-btn" class="action-btn" style="margin-top: 20px;">Generate Shopping List from Plan 🛒</button>
+        </div>
+
+        <!-- SHOPPING LIST VIEW -->
+        <div id="shopping-view" class="view-section hidden">
+            <h2>🛒 Shopping List</h2>
+            <p>Ingredients needed for your planned meals:</p>
+            <ul id="shopping-list-container" class="shopping-list">
+                <!-- Ingredients injected by JS -->
+            </ul>
+            <button onclick="clearShoppingList()" class="action-btn" style="margin-top: 20px;">Clear List 🗑️</button>
+        </div>
+    </main>
+
+    <!-- RECIPE DETAILS MODAL (Includes Timer) -->
+    <div id="recipe-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            
+            <!-- Cooking Timer Section -->
+            <div class="timer-section">
+                <h3>⏱️ Cooking Timer</h3>
+                <div class="timer-controls">
+                    <input type="number" id="timer-minutes" placeholder="Minutes (e.g., 15)" min="1" max="180">
+                    <button id="start-timer">Start</button>
+                    <button id="pause-timer">Pause</button>
+                    <button id="reset-timer">Reset</button>
+                </div>
+                <div id="timer-display">00:00</div>
+            </div>
+
+            <div id="modal-body">
+                <!-- Details injected by JS -->
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
