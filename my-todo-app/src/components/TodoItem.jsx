@@ -9,7 +9,7 @@ function TodoItem({ todo, deleteFunction }) {
         className="delete-btn" 
         onClick={() => deleteFunction(todo.id)}
       >
-        
+        delete
       </button>
     </li>
   );

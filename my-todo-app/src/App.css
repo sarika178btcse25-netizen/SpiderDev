@@ -71,8 +71,17 @@ input {
 }
 
 .delete-btn {
-  background: none;
+  background-color: #e94560; /* A nice red color */
+  color: white;
   border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 12px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.delete-btn:hover {
+  background-color: #c81d39; /* Darker red when hovering over it */
 }
