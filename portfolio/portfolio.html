@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarika Singh | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* CSS Variables for Theme */
+        :root {
+            --bg-color: #0f172a;
+            --surface-color: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #cbd5e1;
+            --accent-1: #3b82f6; /* Blue */
+            --accent-2: #8b5cf6; /* Purple */
+            --gradient: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+        }
+
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Typography & Utility */
+        h1, h2, h3 {
+            color: var(--text-main);
+        }
+
+        .gradient-text {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-1);
+        }
+
+        /* Hero Section */
+        header {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 60px;
+        }
+
+        /* PROFILE PICTURE CSS */
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%; /* Makes it a perfect circle */
+            object-fit: cover; /* Ensures the image fills the circle */
+            object-position: center 15%; /* Focuses perfectly on your face and neck */
+            border: 4px solid transparent;
+            background: var(--gradient);
+            padding: 3px; /* Creates a cool gradient border effect */
+            margin-bottom: 20px;
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+        }
+
+        .hero-content h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 30px;
+            background: var(--gradient);
+            color: white;
+            font-weight: 600;
+            display: inline-block;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Sections General */
+        section {
+            padding: 100px 0;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--surface-color);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255,255,255,0.1);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .card .date-location {
+            font-size: 0.9rem;
+            color: var(--accent-1);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        /* Skills */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skill-tag {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent-1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            font-weight: 600;
+        }
+
+        /* Lists */
+        ul.custom-list {
+            list-style: none;
+        }
+
+        ul.custom-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 15px;
+            color: var(--text-muted);
+        }
+
+        ul.custom-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent-1);
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--surface-color);
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .social-links {
+            margin-bottom: 15px;
+        }
+
+        .social-links a {
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-content">
+            <a href="#" class="logo gradient-text">Sarika.</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home">
+        <div class="container hero-content">
+            <!-- PROFILE IMAGE ADDED HERE -->
+            <img src="profile.jpg" alt="Sarika Singh" class="profile-img">
+            
+            
+            <h1 class="gradient-text">Sarika Singh</h1>
+            <p>B.Tech Computer Science Student | Frontend & Android Developer | ML Enthusiast at IGDTUW.</p>
+            <a href="https://www.linkedin.com/in/sarika-singh-959b0637b/" target="_blank" class="btn">
+                <i class="fab fa-linkedin"></i> Connect on LinkedIn
+            </a>
+        </div>
+    </header>
+
+    <!-- About & Education Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About & <span class="gradient-text">Education</span></h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>👤 Get To Know Me</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">
+                        I am a passionate and driven Computer Science undergraduate at IGDTUW with a CGPA of 8.56. I specialize in frontend web development and have a growing expertise in Machine Learning.I also have worked in mobile app development field.
+                        <br><br>
+                        I deeply believe in leveraging technology to create meaningful social impact. Whether I am building accessible applications for the visually impaired, pitching sustainable innovations, or volunteering to educate underprivileged students, I thrive in environments that challenge me to solve real-world problems.
+                    </p>
+                    <div class="skills-container">
+                        <span class="skill-tag">Android Studio</span>
+                        <span class="skill-tag">Frontend Web</span>
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">Data Structures</span>
+                        <span class="skill-tag">UI/UX Ideation</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>🎓 Academic Background</h3>
+                    <div style="margin-top: 20px;">
+                        <div class="date-location">Aug 2025 – Aug 2029 | IGDTUW, Delhi</div>
+                        <h4 style="color: #fff;">B.Tech in Computer Science</h4>
+                        <p style="color: var(--text-muted); margin-bottom: 20px;">Current CGPA: 8.56 </p>
+                        
+                        <div class="date-location">Graduated Apr 2025 | Lovely Public Sr. Sec. School</div>
+                        <h4 style="color: #fff;">High School Diploma</h4>
+                        <ul class="custom-list" style="margin-top: 10px;">
+                            <li>Class 12th: 93.4%</li>
+                            <li>Class 10th: 98%</li>
+                            <li>Consistently demonstrated academic excellence and a strong focus on problem-solving.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Projects Section -->
+    <section id="projects" style="background-color: var(--surface-color);">
+        <div class="container">
+            <h2 class="section-title">Featured <span class="gradient-text">Project</span></h2>
+            <div class="card" style="background-color: var(--bg-color);">
+                <div class="grid-2" style="align-items: center;">
+                    <div>
+                        <h3 style="font-size: 2rem; margin-bottom: 5px;">ScribeConnect</h3>
+                        <div class="date-location">Ideator & Frontend Developer</div>
+                        <p style="color: var(--text-muted); margin-bottom: 20px;">
+                            <strong>The Inspiration:</strong> After visiting a blind girls' hostel, I recognized the immense challenge visually impaired students face in arranging scribes for their exams.
+                            <br><br>
+                            <strong>The Solution:</strong> I pitched and developed a purpose-driven mobile application to bridge the gap between visually impaired students and volunteer scribes. I spearheaded the frontend development using Android Studio and web tools.
+                            <br><br>
+                            <strong>Key Features:</strong> Implemented a smart matching and emergency-alert system that prioritizes requests based on the user's exam date and location.
+                        </p>
+                        <div class="skills-container">
+                            <span class="skill-tag">Android Studio</span>
+                            <span class="skill-tag">Social Impact</span>
+                            <span class="skill-tag">Frontend</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; font-size: 10rem; color: var(--accent-2); opacity: 0.2;">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Achievements -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Experience & <span class="gradient-text">Achievements</span></h2>
+            
+            <div class="grid-2">
+                <!-- Left Column: Experience -->
+                <div>
+                    <h3 style="margin-bottom: 20px; border-bottom: 2px solid var(--surface-color); padding-bottom: 10px;">💼 Work & Leadership</h3>
+                    
+                    <div class="card" style="margin-bottom: 20px;">
+                        <h3>Machine Learning Intern</h3>
+                        <div class="date-location">IGDTUW</div>
+                        <p style="color: var(--text-muted);">Conducted research and applied ML algorithms to academic datasets. Assisted in data preprocessing, model training, and evaluation.</p>
+                    </div>
+
+                    <div class="card" style="margin-bottom: 20px;">
+                        <h3>Teaching Intern | "All Rounder" Awardee</h3>
+                        <div class="date-location">Nivedan Foundation (Project Pravah)</div>
+                        <p style="color: var(--text-muted);">Volunteered to educate underprivileged students. Awarded "All Rounder" among Star Performers for exceptional effort, sincerity, and community contribution.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Public Relations (PR) Coordinator</h3>
+                        <div class="date-location">Nirvana</div>
+                        <p style="color: var(--text-muted);">Spearheaded PR and outreach strategies, handled communications, and managed event promotions.</p>
+                    </div>
+                </div>
+
+                <!-- Right Column: Achievements -->
+                <div>
+                    <h3 style="margin-bottom: 20px; border-bottom: 2px solid var(--surface-color); padding-bottom: 10px;">🏆 Competitions & Honors</h3>
+                    
+                    <div class="card" style="margin-bottom: 20px;">
+                        <h3>National Youth Parliament Representative</h3>
+                        <div class="date-location">April 2026 | Bhav IGDTUW</div>
+                        <p style="color: var(--text-muted);">Honored to successfully represent the voice of Rajasthan (Vasundhara Raje) in the National Commission for Women (NCW).</p>
+                    </div>
+
+                    <div class="card" style="margin-bottom: 20px;">
+                        <h3>Finalist, Startup Pitch Competition</h3>
+                        <div class="date-location">Society of Women Engineers (SWE)</div>
+                        <p style="color: var(--text-muted);">Reached the finals in the "Sustainability & Green Innovation" theme by pitching an innovative idea centered around bioink.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Global Finalist, CaseForge 2026</h3>
+                        <div class="date-location">Feb 2026 | Enactus IGDTUW</div>
+                        <p style="color: var(--text-muted);">Emerged as a finalist in a global case competition that saw over 1,300 entries worldwide.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/sarika-singh-959b0637b/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="sarika178btcse25@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">
+                © 2026 Sarika Singh. Designed & Built with <i class="fas fa-heart" style="color: #ec4899;"></i>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
