@@ -1,11 +1,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const shortId = require('shortid');
+const cors = require('cors'); 
 const app = express();
 
 
-mongoose.connect('mongodb://127.0.0.1:27017/urlShortener');
+mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/urlShortener');
 
+
+app.use(cors()); 
+app.use(express.json()); 
 
 const urlSchema = new mongoose.Schema({
     full: { type: String, required: true },
@@ -14,43 +18,25 @@ const urlSchema = new mongoose.Schema({
 });
 const Url = mongoose.model('Url', urlSchema);
 
-
-app.set('view engine', 'ejs'); 
-app.use(express.urlencoded({ extended: false })); 
-
-
-app.get('/', async (req, res) => {
-    
+app.get('/api/urls', async (req, res) => {
     const allUrls = await Url.find();
-    
-    res.render('index', { urls: allUrls });
+    res.json(allUrls); 
 });
 
-
-app.post('/shortUrls', async (req, res) => {
-    
-    await Url.create({ full: req.body.fullUrl });
-    
-    
-    res.redirect('/');
+app.post('/api/shortUrls', async (req, res) => {
+    const newUrl = await Url.create({ full: req.body.fullUrl });
+    res.json(newUrl); 
 });
 
 app.get('/:shortUrl', async (req, res) => {
-    
     const url = await Url.findOne({ short: req.params.shortUrl });
-    
-    
     if (url == null) return res.sendStatus(404);
 
-  
     url.clicks++;
     url.save();
-
-    
     res.redirect(url.full);
 });
 
-
-app.listen(5000, () => {
-    console.log(' Server is running! Open http://localhost:5000 in your browser.');
+app.listen(process.env.PORT || 5000, () => {
+    console.log(' Backend API running');
 });
